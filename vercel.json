@@ -1,12 +1,18 @@
 {
-    "version" : 2 ,
-    "builds" : [
-        {
-            "src" : "angular.json",
-            "use" : "@vercel/static-build",
-            "config" : {}
+    "version": 2,
+    "builds": [
+      {
+        "src": "angular.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist/angular-app"
         }
+      }
     ],
-    "routes" : [],
-    "outputDirectory" : "dist/angular-app"
-}
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
