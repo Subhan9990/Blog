@@ -1,0 +1,14 @@
+<header>
+  <mat-toolbar class="navbar">
+    <span class="logo">MyBlog</span>
+
+    <button class="menu-icon" (click)="toggleMenu()">☰</button>
+
+    <span class="space"></span>
+
+    <nav class="nav-links" [ngClass]="{ 'show': menuOpen }">
+      <button mat-button routerLink="/">Home</button>
+      <button mat-button routerLink="/create">Create Blog</button>
+    </nav>
+  </mat-toolbar>
+</header>

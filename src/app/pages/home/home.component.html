@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="section-title">Latest Blogs</h2>
+
+  <ng-container *ngIf="articles | async as blogList; else loading">
+    <div *ngIf="blogList.length > 0; else noArticles" class="blogs-grid">
+      <app-article-card *ngFor="let article of blogList" [article]="article"></app-article-card>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+
+  <ng-template #noArticles>
+    <p style="text-align: center;">No articles found.</p>
+  </ng-template>
+</div>
