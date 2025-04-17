@@ -3,7 +3,7 @@
 
   <ng-container *ngIf="articles | async as blogList; else loading">
     <div *ngIf="blogList.length > 0; else noArticles" class="blogs-grid">
-      <app-article-card *ngFor="let article of blogList" [article]="article"></app-article-card>
+      <app-article-card *ngFor="let article of blogList" [article]="article" (edit)="updateArticle($event)" (delete)="deleteArticle($event)"></app-article-card>
     </div>
   </ng-container>
 

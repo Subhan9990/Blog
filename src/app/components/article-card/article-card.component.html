@@ -1,4 +1,3 @@
-<!-- src/app/components/article-card/article-card.component.html -->
 <mat-card class="article-card">
   <mat-card-header>
     <mat-card-title>{{ article.title }}</mat-card-title>
@@ -10,6 +9,11 @@
   <img mat-card-image [src]="article.imageUrl" *ngIf="article.imageUrl">
 
   <mat-card-content>
-    <p>{{ article.content | slice:0:150 }}…</p>
+    <p>{{ article.content | slice:0:150 }}...</p>
   </mat-card-content>
+
+<mat-card-actions class="action-buttons">
+  <button mat-button color="primary" (click)="onEdit()"><mat-icon>edit</mat-icon> Edit</button>
+   <button mat-button color="primary" (click)="onDelete()"><mat-icon>delete</mat-icon> Delete</button>
+</mat-card-actions>
 </mat-card>

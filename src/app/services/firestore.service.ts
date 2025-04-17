@@ -1,9 +1,12 @@
-import { collectionData, Firestore, collection } from '@angular/fire/firestore';
-import { addDoc } from 'firebase/firestore';
+import { collectionData, Firestore, collection , addDoc , updateDoc , deleteDoc , doc , DocumentData } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Timestamp } from 'firebase/firestore';
-import { inject } from '@angular/core';
+import { inject , Injectable } from '@angular/core';
 
+
+@Injectable({
+  providedIn : 'root'
+})
 export class FirestoreService {
   private firestore = inject(Firestore);
 
@@ -24,5 +27,13 @@ export class FirestoreService {
   addArticle(article: any) {
     const articlesRef = collection(this.firestore, 'Blog');
     return addDoc(articlesRef, article);
-  }
+  };
+  updateArticle(id:string , updatedData : any){
+        const docRef = doc(this.firestore ,'Blog', id);
+        return updateDoc(docRef , updatedData);
+  };
+  deleteArticle(id: string){
+    const docRef = doc(this.firestore ,'Blog',id);
+    return deleteDoc(docRef);
+  };
 }
