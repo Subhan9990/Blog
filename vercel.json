@@ -1,4 +1,11 @@
 {
-    "rewrites" : "/(.*)",
-    "destination" : "/index.html"
+    "rewrites" : [
+      {  "source" : "/(.*)",
+      "destination" : "index.html"
+    }
+
+    ],
+    "outputDirectory":"dist/Angular-App"
+
+    
 }
